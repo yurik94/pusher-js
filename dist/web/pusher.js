@@ -1,5 +1,5 @@
 /*!
- * Pusher JavaScript Library v7.0.3
+ * Pusher JavaScript Library v7.0.4
  * https://pusher.com/
  *
  * Copyright 2020, Pusher
@@ -593,7 +593,7 @@ var ScriptReceivers = new ScriptReceiverFactory('_pusher_script_', 'Pusher.Scrip
 
 // CONCATENATED MODULE: ./src/core/defaults.ts
 var Defaults = {
-    VERSION: "7.0.3",
+    VERSION: "7.0.4",
     PROTOCOL: 7,
     wsPort: 80,
     wssPort: 443,
@@ -3442,7 +3442,7 @@ var getDefaultStrategy = function (config, baseOptions, defineTransport) {
         timeoutLimit: 60000
     };
     var ws_manager = new transport_manager({
-        lives: 2,
+        lives: Infinity,
         minPingDelay: 10000,
         maxPingDelay: config.activityTimeout
     });
