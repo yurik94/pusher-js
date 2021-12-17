@@ -172,13 +172,13 @@ var getDefaultStrategy = function(
   if (baseOptions.useTLS) {
     wsStrategy = new BestConnectedEverStrategy([
       ws_loop,
-      new DelayedStrategy(http_fallback_loop, { delay: 2000 })
+      //new DelayedStrategy(http_fallback_loop, { delay: 2000 })
     ]);
   } else {
     wsStrategy = new BestConnectedEverStrategy([
       ws_loop,
       new DelayedStrategy(wss_loop, { delay: 2000 }),
-      new DelayedStrategy(http_fallback_loop, { delay: 5000 })
+      //new DelayedStrategy(http_fallback_loop, { delay: 5000 })
     ]);
   }
 

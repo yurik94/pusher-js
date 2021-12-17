@@ -2960,6 +2960,7 @@ module.exports = __webpack_require__(5).default;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
 // CONCATENATED MODULE: ./src/runtimes/web/dom/script_receiver_factory.ts
@@ -5879,14 +5880,12 @@ var getDefaultStrategy = function (config, baseOptions, defineTransport) {
     if (baseOptions.useTLS) {
         wsStrategy = new best_connected_ever_strategy([
             ws_loop,
-            new delayed_strategy(http_fallback_loop, { delay: 2000 })
         ]);
     }
     else {
         wsStrategy = new best_connected_ever_strategy([
             ws_loop,
             new delayed_strategy(wss_loop, { delay: 2000 }),
-            new delayed_strategy(http_fallback_loop, { delay: 5000 })
         ]);
     }
     return new cached_strategy(new first_connected_strategy(new if_strategy(testSupportsStrategy(ws_transport), wsStrategy, http_fallback_loop)), definedTransports, {
